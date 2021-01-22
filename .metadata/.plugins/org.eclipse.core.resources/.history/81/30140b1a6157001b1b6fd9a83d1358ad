@@ -1,0 +1,32 @@
+import java.io.*;
+public class WriteAndReadDemo {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		// TODO Auto-generated method stub
+		File file = new File("D:\\temp\\testFile4.txt");
+		PrintWriter pw = new PrintWriter(file);
+		pw.println(100);
+		pw.println(100.1231);
+		pw.println("My name is Harshit Agarwal");
+		for(int i=0;i<5;i++)
+			pw.print(i+" ");
+		pw.flush();
+		pw.close();
+		
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		int val = Integer.parseInt(br.readLine());
+		double d = Double.parseDouble(br.readLine());
+		String str = br.readLine();
+		System.out.println(val +" "+d+" "+str);
+		String str1 = br.readLine();
+		String str2[] = str1.trim().split(" ");
+		int arr[] = new int[str2.length];
+		for(int i=0;i<arr.length;i++)
+		{
+			arr[i] = Integer.parseInt(str2[i]);
+			System.out.print(arr[i]+" ");
+		}
+	}
+
+}

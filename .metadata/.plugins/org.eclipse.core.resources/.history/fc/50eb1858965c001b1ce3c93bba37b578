@@ -1,0 +1,27 @@
+package tree;
+
+public class TreeTraversal {
+
+	Node root;
+	
+	TreeTraversal()
+	{
+		root = null;
+	}
+	
+	void preOrderTraversal(Node node)
+	{
+		if(node == null)
+			return;
+		
+		System.out.print(node.data+" ");
+		preOrderTraversal(node.left);
+		preOrderTraversal(node.right);
+	}
+	
+	void inOrderTraversal(Node node)
+	{
+		if(node == null)
+			return;
+	}
+}

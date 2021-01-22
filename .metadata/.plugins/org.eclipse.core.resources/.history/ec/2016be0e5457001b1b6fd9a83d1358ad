@@ -1,0 +1,26 @@
+import java.io.*;
+public class CreateFile {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		File file = new File("D:\\temp\\testFile.txt");
+		System.out.println(file.exists());		
+		file.createNewFile();	// Dosn't create a file if it is already created		
+		System.out.println(file.exists());
+		
+		File dir = new File("D:\\temp\\Test");
+		System.out.println(dir.exists());
+		dir.mkdir();		// Dosn't create a folder if it is already created
+		System.out.println(dir.exists());
+		
+		File listAll = new File("D:\\temp\\");
+		String s[] = listAll.list();
+		for(String i : s)
+			System.out.print(i+", ");
+		System.out.println();
+		
+		file.delete();
+		System.out.println(file.exists());
+	}
+
+}

@@ -1,0 +1,143 @@
+package SingleAndDoublyLinkedList;
+
+class Node
+{
+	int data;
+	Node next;
+	
+	Node(int data)
+	{
+		this.data = data;
+		this.next = null;
+	}
+}
+public class LinkedList 
+{
+	Node head = null;
+	void insertAtBeg(int data)
+	{
+		Node newNode = new Node(data);
+		newNode.next = head;
+		head = newNode;
+	}
+	
+	void insert(int num, int data)
+	{
+		Node tempNode = head;
+		while(tempNode!=null && tempNode.data != num)
+			tempNode = tempNode.next;
+		if(tempNode == null)
+		{
+			System.out.println("Element "+num+" not found, insertion is unsuccessfull.");
+			return;
+		}
+		Node newNode = new Node(data);
+		newNode.next = tempNode.next;
+		tempNode.next = newNode;
+	}
+	
+	void insertAtEnd(int data)
+	{
+		Node newNode = new Node(data);
+		if(head == null)
+		{
+			head = newNode;
+		}
+		else
+		{
+			Node tempNode = head;
+			while(tempNode.next != null)
+				tempNode = tempNode.next;
+			
+			tempNode.next = newNode;
+		}
+		
+	}
+	
+	void delete(int num)
+	{
+		Node currentNode = head;
+		Node prevNode = null;
+		while(currentNode != null && currentNode.data != num)
+		{
+			prevNode = currentNode;
+			currentNode = currentNode.next;
+		}
+			
+		
+		if(currentNode == head)
+		{
+			if(head == null)
+			{
+				System.out.println("List is Empty, can't delete from empty list");
+				return;
+			}
+			
+			head = head.next;	// if list is not empty
+			return;
+		}
+		if(currentNode == null)
+		{
+			System.out.println("Element "+num+" not found.");
+			return;
+		}
+		prevNode.next = currentNode.next;	// delete any node from between nodes and can also deletes last node
+		
+	}
+	
+	void reverse()
+	{
+		Node current = head, prev = null, next = null;
+		while(current != null)
+		{
+			next = current.next;
+			current.next = prev;
+			prev = current;
+			current = next;
+		}
+		
+		head = prev;
+	}
+	
+	void printList()
+	{
+		Node tempNode = head;
+		while(tempNode != null)
+		{
+			System.out.print(tempNode.data+" ");
+			tempNode = tempNode.next;
+		}
+		System.out.println();
+	}
+	
+	void arrange()
+	{
+		if(head == null)
+			return;
+		
+		Node odd = head, even = null, prev = null;
+		
+		while(odd != null && odd.next != null)
+		{
+			if(odd != null && odd.data % 2 == 0)
+			{
+				Node newNode = odd;
+				if(odd == head)
+					head = odd.next;
+				else
+					odd.next = odd.next.next;
+				
+				newNode.next = even;
+				even = newNode;
+			}
+			
+			prev = odd;
+			odd = odd.next;
+		}
+		
+		if(odd != null)
+			odd.next = even;
+		else
+			prev.next = even;
+	}
+}

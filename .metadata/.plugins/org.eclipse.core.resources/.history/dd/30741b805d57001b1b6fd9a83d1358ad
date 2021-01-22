@@ -1,0 +1,33 @@
+import java.io.*;
+
+public class BufferedWriterDemo {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		File file = new File("D:\\temp\\testFile2.txt");
+		FileWriter fw = new FileWriter(file);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(120);;
+		bw.newLine();
+		bw.write('a');
+		bw.newLine();
+		bw.write("My name is Harshit Agarwal");
+		bw.newLine();
+		char ch[] = {'x','y','z'};
+		bw.write(ch);;
+		bw.flush();
+		bw.close();
+		
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String line = br.readLine();
+		while(line != null)
+		{
+			System.out.println(line);
+			line = br.readLine();
+		}
+		
+		br.close();
+	}
+
+}

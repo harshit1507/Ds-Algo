@@ -1,0 +1,18 @@
+import java.io.*;
+public class CreateFile {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		File file = new File("D:\\temp\\testFile.txt");
+		System.out.println(file.exists());
+		
+		file.createNewFile();	// Dosn't create a file if it is already created
+		
+		File dir = new File("D:\\temp\\Test");
+		dir.mkdir();
+		
+		System.out.println(f.exists());
+		
+	}
+
+}

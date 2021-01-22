@@ -1,0 +1,10 @@
+INDEX VERSION 1.131+C:\Users\harsh\Documents\Java Tutorial\Ds&Algo\.metadata\.plugins\org.eclipse.jdt.core
+2228597084.index
+1169976574.index
+3086198347.index
+227146537.index
+3460880079.index
+2361772636.index
+3431858651.index
+570915288.index
+4238989711.index

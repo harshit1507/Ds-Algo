@@ -1,0 +1,48 @@
+package stack;
+import java.util.*;
+import java.io.*;
+public class test {
+
+	static String perfect(String str)
+    {
+      Stack<Character> stack = new Stack<>();
+      for(int i=str.length()-1;i>=0;i--)
+      {
+        char c = str.charAt(i);
+        if(stack.empty())
+          stack.push(c);
+        else
+        {
+          if(stack.peek() == c - 32 || stack.peek() == c + 32)
+          {
+            stack.pop();
+          }
+          else
+          {
+            stack.push(c);
+          }
+        }
+      }
+      String res = "";
+      for(int i=0;i<str.length();i++)
+      {
+        res += stack.peek().toString();
+        stack.pop();
+      }
+      return res;
+    }
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		 Scanner sc = new Scanner(System.in);
+	      int t = sc.nextInt();
+	      sc.nextLine();
+	      while(t-->0)
+	      {
+	        String str = sc.next();
+	        System.out.println(perfect(str));
+	      }
+	}
+
+}

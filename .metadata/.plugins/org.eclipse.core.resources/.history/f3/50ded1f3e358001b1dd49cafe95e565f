@@ -1,0 +1,38 @@
+package queueDemo;
+
+public class QueueUsingArray {
+	int front = -1;
+	int rear = -1;
+	int queue[];
+	int max;
+	
+	QueueUsingArray(int max)
+	{
+		queue = new int[max];
+		this.max = max;
+	}
+	public void enqueue(int item)
+	{
+		rear = (rear+1) % max;
+		if(rear == front)
+		{
+			System.out.println("Queue is full");
+			return;
+		}
+		else
+		{
+			queue[rear] = item;
+			if(front == -1)
+				front = rear;
+		}
+	}
+	
+	public void printQueue()
+	{
+		for(int i=front;i<rear;i = (i+1)%max)
+		{
+			System.out.println(queue[i]+" ");
+		}
+		System.out.println();
+	}
+}
